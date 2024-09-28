@@ -38,11 +38,31 @@ const asciiHeart = [
 
 
 const animateByChart = (ms) => {
+    let i = 0;
+    asciiHeart.forEach((line) => {
 
+        line.split('').forEach((char, charIndex) => {
+            setTimeout(() => {
+                process.stdout.write(char)
+                if (charIndex === line.split('').length - 1) {
+                    process.stdout.write('\n')
+                }
+            }, (i * ms))
+            i++
+        })
+
+    })
 }
+animateByChart(100)
 
-const animateByLine = (ms) => {
 
-}
 
-// animateByChart()
+/* const animateByLine = (ms) => {
+    for (let i = 0; i < asciiHeart.length; i++) {
+        setTimeout(() => {
+            console.log(asciiHeart[i]);
+        }, i * ms);
+    }
+};
+
+animateByLine(100) */
